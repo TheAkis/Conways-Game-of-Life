@@ -27,7 +27,7 @@ public class Grid extends JFrame implements ActionListener{
         for(int i=0;i<height;i++){
             for(int j=0;j<width;j++){
                 if(source==GridSquares[i][j]){
-                    GridSquares[i][j].setBackground(Color.yellow);
+                    GridSquares[i][j].setBackground((GridSquares[i][j].getBackground()==Color.yellow)?null:Color.yellow);
                 }
             }
         }
