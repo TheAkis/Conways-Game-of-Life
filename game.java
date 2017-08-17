@@ -5,20 +5,20 @@ public class game {
     static void main()throws InterruptedException{
         //Screen screen = new Screen(20,20);      
         Grid grid = new Grid();
-        Thread.sleep(20*1000);
+        Pause pause = new Pause();
+        Thread.sleep(5*1000);
         GoLLY g = new GoLLY(grid);
         int x=0,y=0;
         boolean running = true;
-        boolean paused = false;
-        int fps=10;
+        int fps=3;
         while(running){
             Thread.sleep((int)1000/fps);
-            if(!paused){
+            if(!pause.pause){
                 g.display();
                 g.playGod();
                 g.update();
             }else{
-                //TODO: pause feature
+                g.getGrid();
             }
             //grid.main();
         }

@@ -3,8 +3,9 @@ import java.awt.event.*;
 import javax.swing.*;
 public class Grid extends JFrame implements ActionListener{
     private Container contents;
-    int height = 50;
+    int w = 20;
     int width = 50;
+    int height = 50;
     JButton[][] GridSquares = new JButton[height][width];
     int cols,rows;
     public Grid(){
@@ -17,11 +18,7 @@ public class Grid extends JFrame implements ActionListener{
                 GridSquares[i][j].addActionListener(this);
             }
         }
-        setSize(700,700);
-        /*Button b = new Button("Start");
-        b.setBounds(650,700,50,50);
-        add(b);*/
-        //setResizable(false);
+        setSize(width*w,height*w);
         setVisible(true);
         setLayout(null);
     }

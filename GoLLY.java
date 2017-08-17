@@ -26,6 +26,13 @@ public class GoLLY
         }
 
     }
+    void getGrid(){
+        for(int i=0;i<cells.length;i++){
+            for(int j=0;j<cells[i].length;j++){
+                cells[i][j].alive = grid.GridSquares[i][j].getBackground()==Color.yellow ;
+            }
+        }
+    }
 
     int checkNeighbours(int x,int y){
         int neighbours=0;
