@@ -22,7 +22,6 @@ public class Grid extends JFrame implements ActionListener{
         setVisible(true);
         setLayout(null);
     }
-
     public void actionPerformed(ActionEvent e){
         Object source = e.getSource();
         for(int i=0;i<height;i++){
@@ -32,17 +31,5 @@ public class Grid extends JFrame implements ActionListener{
                 }
             }
         }
-    }
-
-    void setAliveStatus(int x,int y,boolean alive){
-        if(alive){
-            GridSquares[x][y].setBackground(Color.yellow);
-        }else{
-            GridSquares[x][y].setBackground(null);
-        }
-    }
-
-    public static void main(String args[]){
-        new Grid();
     }
 }
