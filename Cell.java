@@ -24,9 +24,6 @@ public class Cell
 
     void update(){
         alive = pipeline;
-        if(button.getBackground()==Color.yellow){
-            //System.out.println("Yellow");
-        }
     }
 
     void display(){
