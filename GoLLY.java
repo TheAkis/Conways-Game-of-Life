@@ -12,20 +12,8 @@ public class GoLLY
                 cells[i][j] = new Cell(j,i,grid.GridSquares[i][j]);
             }
         }
-        cells[4][10].alive = true;
-        cells[5][11].alive = true;
-        cells[5][12].alive = true;
-        cells[4][12].alive = true;
-        cells[3][12].alive = true;
-        
-        
-        for(int i=0;i<cells.length;i++){
-            for(int j=0;j<cells[i].length;j++){
-                cells[i][j].alive = grid.GridSquares[i][j].getBackground()==Color.yellow ;
-            }
-        }
-
     }
+    
     void getGrid(){
         for(int i=0;i<cells.length;i++){
             for(int j=0;j<cells[i].length;j++){

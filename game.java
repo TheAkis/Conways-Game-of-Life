@@ -5,15 +5,12 @@ public class game {
     static void main()throws InterruptedException{
         //Screen screen = new Screen(20,20);      
         Grid grid = new Grid();
-        Pause pause = new Pause();
-        Thread.sleep(5*1000);
+        Control control = new Control();
         GoLLY g = new GoLLY(grid);
-        int x=0,y=0;
         boolean running = true;
-        int fps=3;
         while(running){
-            Thread.sleep((int)1000/fps);
-            if(!pause.pause){
+            Thread.sleep((int)1000/control.fps);
+            if(!control.pause){
                 g.display();
                 g.playGod();
                 g.update();
