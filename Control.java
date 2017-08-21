@@ -5,10 +5,13 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 public class Control{
     static JFrame frame;
+    static JPanel panel;
     public boolean pause=true;
     public int fps = 5;
     public Control(){
         frame = new JFrame("Control Menu");
+        panel = new JPanel();
+        frame.add(panel);
         JButton pausebutton = new JButton("►");
         JSlider generationspeed = new JSlider(0,20,fps);
         JButton exitbutton = new JButton("Exit");
@@ -52,10 +55,10 @@ public class Control{
         );
         frame.setLayout(null);
         frame.getContentPane().setLayout(new FlowLayout());      
-        frame.add(pausebutton);
-        frame.add(exitbutton);
-        frame.add(generationspeed);
-        frame.setPreferredSize(new Dimension(300, 100));
+        panel.add(pausebutton);
+        panel.add(exitbutton);
+        panel.add(generationspeed);
+        frame.setPreferredSize(new Dimension(350, 100));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
