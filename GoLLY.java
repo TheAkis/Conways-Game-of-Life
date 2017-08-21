@@ -38,7 +38,7 @@ public class GoLLY
         return neighbours;
     }
 
-    void playGod(){
+    void applyChanges(){
         for(int i =0;i<cells.length;i++){
             for(int j=0;j<cells[i].length;j++){
                 int neighbours = checkNeighbours(j,i);

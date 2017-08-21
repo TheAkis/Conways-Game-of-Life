@@ -3,12 +3,14 @@ import java.awt.event.*;
 import javax.swing.*;
 public class Grid extends JFrame implements ActionListener{
     private Container contents;
-    int w = 20;
-    int width = 50;
-    int height = 50;
-    JButton[][] GridSquares = new JButton[height][width];
-    int cols,rows;
-    public Grid(){
+    int width,height,w;
+    JButton[][] GridSquares;
+    public Grid(int wid, int h,int s){
+        width = wid;
+        height = h;
+        w = s;
+        
+        GridSquares = new JButton[height][width];
         contents= getContentPane();
         contents.setLayout(new GridLayout(height,width));
         for(int i=0;i<height;i++){
