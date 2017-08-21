@@ -11,7 +11,7 @@ public class Control{
         frame = new JFrame("Control Menu");
         JButton pausebutton = new JButton("►");
         JSlider generationspeed = new JSlider(0,20,fps);
-        
+        JButton exitbutton = new JButton("Exit");
         generationspeed.addChangeListener(new ChangeListener()
         {
             public void stateChanged(ChangeEvent e){
@@ -29,7 +29,7 @@ public class Control{
         generationspeed.setMinorTickSpacing(1);
         generationspeed.setPaintTicks(true);
         generationspeed.setPaintLabels(true);
-        
+        exitbutton.setFocusable(false);
         pausebutton.setFocusable(false);
         pausebutton.addActionListener(new ActionListener()
         {
@@ -43,9 +43,17 @@ public class Control{
                 }
             }
         );
+        exitbutton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e){
+                System.exit(0);
+                }
+            }
+        );
         frame.setLayout(null);
         frame.getContentPane().setLayout(new FlowLayout());      
         frame.add(pausebutton);
+        frame.add(exitbutton);
         frame.add(generationspeed);
         frame.setPreferredSize(new Dimension(300, 100));
         frame.pack();
