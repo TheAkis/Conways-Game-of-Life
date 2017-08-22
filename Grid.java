@@ -1,37 +1,58 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-public class Grid extends JFrame implements ActionListener{
-    private Container contents;
+public class Grid{
+    public JFrame frame;
+    public JPanel panel;
+    //public JPanel panel;
     int width,height,w;
     JButton[][] GridSquares;
     public Grid(int wid, int h,int s){
+        frame = new JFrame();
+        panel = new JPanel();
+        panel = new JPanel();
+        
+        frame.setLayout(new BoxLayout(frame.getContentPane(),BoxLayout.X_AXIS));
+        //panel.setLayout(new BorderLayout());
+        
+        
+        
+        
         width = wid;
         height = h;
         w = s;
-        
         GridSquares = new JButton[height][width];
-        contents= getContentPane();
-        contents.setLayout(new GridLayout(height,width));
+        panel.setLayout(new GridLayout(height,width));
+ 
+        
         for(int i=0;i<height;i++){
             for(int j=0;j<width;j++){
                 GridSquares[i][j]=new JButton();
-                contents.add(GridSquares[i][j]);
-                GridSquares[i][j].addActionListener(this);
+                GridSquares[i][j].addActionListener(new ActionListener(){
+                     public void actionPerformed(ActionEvent e){
+                         JButton source = ((JButton)e.getSource());
+                         source.setBackground((source.getBackground()==Color.yellow)?null:Color.yellow);
+                     }
+                });
+                panel.add(GridSquares[i][j]);
             }
         }
-        setSize(width*w,height*w);
-        setVisible(true);
-        setLayout(null);
+        
+        //panel.add(panel,BorderLayout.NORTH);
+        frame.add(panel);//,BorderLayout.WEST);
+        
+        
+        frame.setSize(width*w,height*w);
+        frame.setVisible(true);
+        
     }
-    public void actionPerformed(ActionEvent e){
-        Object source = e.getSource();
-        for(int i=0;i<height;i++){
-            for(int j=0;j<width;j++){
-                if(source==GridSquares[i][j]){
-                    GridSquares[i][j].setBackground((GridSquares[i][j].getBackground()==Color.yellow)?null:Color.yellow);
-                }
-            }
-        }
+    
+    JFrame getFrame(){
+        return frame;
+    }
+
+
+    public static void main(){
+        Grid grid = new Grid(20,20,20);
     }
 }

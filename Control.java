@@ -8,10 +8,10 @@ public class Control{
     static JPanel panel;
     public boolean pause=true;
     public int fps = 5;
-    public Control(){
-        frame = new JFrame("Control Menu");
+    public Control(JFrame frame1){
+        frame = frame1;//new JFrame("Control Menu");
         panel = new JPanel();
-        frame.add(panel);
+        frame.add(panel,BorderLayout.EAST);
         JButton pausebutton = new JButton("►");
         JSlider generationspeed = new JSlider(0,20,fps);
         JButton exitbutton = new JButton("Exit");
@@ -53,13 +53,14 @@ public class Control{
                 }
             }
         );
-        frame.setLayout(null);
-        frame.getContentPane().setLayout(new FlowLayout());      
+        //frame.getContentPane().setLayout(new BorderLayout()); 
+        panel.setVisible(true);
+        panel.setLayout(new BoxLayout(panel, BoxLayout.LINE_AXIS));
         panel.add(pausebutton);
         panel.add(exitbutton);
         panel.add(generationspeed);
-        frame.setPreferredSize(new Dimension(350, 100));
-        frame.pack();
+        //frame.setPreferredSize(new Dimension(350, 100));
+        //frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
